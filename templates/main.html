@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>SQLite Viewer</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style media="screen">
+		table {
+			border: 1px solid black;
+			border-collapse: collapse;
+			}
+		th {
+			border: 1px solid black;
+			text-align: left;
+		  padding: 2px;
+		}
+		td {
+			border: 1px solid black;
+		  padding: 2px;
+		}
+	</style>
+</head>
+
+<body>
+<div class="container">
+
+
+	{% for table in tables %}
+	<h1>{{table[0]}}</h1>
+
+
+	<table style="width:100%">
+		<thead>
+			<tr>
+				{% for rowHead in tableHeaders[0] %}
+						<th>{{rowHead}}</th>
+
+				{% endfor %}
+			</tr>
+		</thead>
+		<tbody>
+			{% for row in data %}
+			<tr>
+				{% for cell in row %}
+				<td>{{cell[0]}}</td>
+				{% endfor %}
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+
+	{% endfor %}
+
+</div>
+</body>
+</html>
